@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#if( $jakartaEEVersion == '8.0.0')
+    #set( $xmlns = 'https://xmlns.jcp.org/xml/ns/persistence' )
+    #set( $xsiSchemaLocation = 'http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd' )
+    #set( $version = '2.2' )
+#else
+    #set( $xmlns = 'https://jakarta.ee/xml/ns/persistence' )
+    #if( $jakartaEEVersion == '9.0.0' || $jakartaEEVersion == '9.1.0' )
+        #set( $xsiSchemaLocation = 'https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd' )
+        #set( $version = '3.0' )
+    #else
+        #set( $xsiSchemaLocation = 'https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd' )
+        #set( $version = '3.1' )
+    #end
+#end
+
+<persistence xmlns="$xmlns"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xsi:schemaLocation="$xsiSchemaLocation"
+             version="$version">
+    <!-- Define Persistence Unit -->
+    <persistence-unit name="my_persistence_unit">
+    </persistence-unit>
+</persistence>
