@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+#if( $jakartaEEVersion == '8.0.0')
+    #set( $xmlns = 'https://xmlns.jcp.org/xml/ns/javaee' )
+    #set( $xsiSchemaLocation = 'https://xmlns.jcp.org/xml/ns/javaee https://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd' )
+    #set( $version = '4.0' )
+#else
+    #set( $xmlns = 'https://jakarta.ee/xml/ns/jakartaee' )
+    #if( $jakartaEEVersion == '9.0.0' || $jakartaEEVersion == '9.1.0' )
+        #set( $xsiSchemaLocation = 'https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd' )
+        #set( $version = '5.0' )
+    #else
+        #set( $xsiSchemaLocation = 'https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd' )
+        #set( $version = '6.0' )
+    #end
+#end
+
+<web-app xmlns="$xmlns"
+    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="$xsiSchemaLocation"
+    version="$version">
+</web-app>
