@@ -21,6 +21,11 @@ under the License.
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.apache.netbeans</groupId>
+        <artifactId>netbeans-parent</artifactId>
+        <version>3</version>
+    </parent>
     <groupId>org.apache.netbeans.archetypes</groupId>
     <artifactId>netbeans-archetype-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
@@ -51,11 +56,25 @@ under the License.
         </license>
     </licenses>
 
+    <distributionManagement>
+        <site>
+            <id>netbeans.bits</id>
+            <url>https://bits.netbeans.org/mavenutilities/archetypes</url>
+        </site>
+    </distributionManagement>
+
     <modules>
         <module>netbeans-jakartaee-war-archetype</module>
     </modules>
-
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>4.0.0-M8</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <extensions>
             <extension>
                 <groupId>org.apache.maven.archetype</groupId>
