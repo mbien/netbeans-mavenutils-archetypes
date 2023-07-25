@@ -50,7 +50,7 @@ under the License.
     <scm>
         <connection>scm:git:https://github.com/apache/netbeans-mavenutils-archetypes.git</connection>
         <developerConnection>scm:git:https://github.com/apache/netbeans-mavenutils-archetypes.git</developerConnection>
-        <url>https://github.com/apache/netbeans-mavenutils-archetyp</url>
+        <url>https://github.com/apache/netbeans-mavenutils-archetypes</url>
         <tag>HEAD</tag>
     </scm>
     <issueManagement>
