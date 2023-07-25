@@ -19,13 +19,15 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.apache.netbeans</groupId>
         <artifactId>netbeans-parent</artifactId>
         <version>4</version>
     </parent>
+
     <groupId>org.apache.netbeans.archetypes</groupId>
     <artifactId>netbeans-archetype-parent</artifactId>
     <version>1.0.1-SNAPSHOT</version>
@@ -33,22 +35,6 @@ under the License.
 
     <name>Apache NetBeans Maven Archetypes</name>
     <description>Parent project to build and configure archetype used by Apache NetBeans IDE.</description>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-    <issueManagement>
-        <system>GitHub Issues</system>
-        <url>https://github.com/apache/netbeans/issues</url>
-    </issueManagement>
-    <scm>
-        <connection>scm:git:https://github.com/apache/netbeans-mavenutils-archetypes.git</connection>
-        <developerConnection>scm:git:https://github.com/apache/netbeans-mavenutils-archetypes.git</developerConnection>
-        <url>https://github.com/apache/netbeans-mavenutils-archetyp</url>
-      <tag>HEAD</tag>
-  </scm>
-
     <licenses>
         <license>
             <name>Apache License 2</name>
@@ -57,22 +43,37 @@ under the License.
         </license>
     </licenses>
 
-    <distributionManagement>
-        <site>
-            <id>netbeans.bits</id>
-            <url>https://bits.netbeans.org/mavenutilities/archetypes</url>
-        </site>
-    </distributionManagement>
-
     <modules>
         <module>netbeans-jakartaee-war-archetype</module>
     </modules>
+
+    <scm>
+        <connection>scm:git:https://github.com/apache/netbeans-mavenutils-archetypes.git</connection>
+        <developerConnection>scm:git:https://github.com/apache/netbeans-mavenutils-archetypes.git</developerConnection>
+        <url>https://github.com/apache/netbeans-mavenutils-archetyp</url>
+        <tag>HEAD</tag>
+    </scm>
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/apache/netbeans/issues</url>
+    </issueManagement>
+    <distributionManagement>
+        <site>
+            <id>netbeans.bits</id>
+            <url>https://bits.netbeans.org/mavenutilities/archetypes/</url>
+        </site>
+    </distributionManagement>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <build>
         <pluginManagement>
             <plugins>
                 <plugin>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>4.0.0-M8</version>
+                    <version>4.0.0-M9</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.rat</groupId>
@@ -81,6 +82,17 @@ under the License.
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <configuration>
+                    <!-- hard coded work here,  ${project.distributionManagement.site.url} move everything
+                    to staging root removing the "parent " -->
+                    <topSiteURL>https://bits.netbeans.org/mavenutilities/archetypes/</topSiteURL>
+                </configuration>
+            </plugin>
+        </plugins>
         <extensions>
             <extension>
                 <groupId>org.apache.maven.archetype</groupId>
